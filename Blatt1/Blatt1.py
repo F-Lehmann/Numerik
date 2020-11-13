@@ -108,7 +108,7 @@ print("ohne Schleife: {0}".format(t3-t2))
 print("Oh Wunder, ohne schleife ist schneller")
 
 print("r)")
-#nicht jede zufällig eMatrix ist invertierbar, diese bleiben unverändert
+#nicht jede zufällige Matrix ist invertierbar, diese bleiben stattdessen unverändert.
 r = np.random.randint(100, size=(1000,4))
 print(r)
 r = np.array([(1/(m[0]*m[3]-m[1]*m[2])*np.array([m[3],-m[1],-m[2],m[0]])) if (m[0]*m[3]-m[1]*m[2])!=0 else m for m in r])
