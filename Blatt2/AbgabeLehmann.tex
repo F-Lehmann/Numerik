@@ -5,6 +5,7 @@
 \usepackage{hyperref}
 \usepackage{amssymb}
 \usepackage{ngerman}
+\usepackage{amsmath}
 
 % the document
 \begin{document}
@@ -18,9 +19,79 @@
 \maketitle
 
 \section*{Aufgabe 1}
-Here comes your text \ldots
+$B = \begin{pmatrix}
+    -2 &  1 & -7\\
+    -7 & -1 &  1\\
+     0 &  6 &  5
+    \end{pmatrix}$
+
+\subsection*{a)}
+$||B||_1 = 13$\\
+$||B||_\infty = 11$\\
+$||B||_F = 2\sqrt{41}$
+
+\subsection*{b)}
+
+
+\subsection*{c)}
+Eine Norm muss drei Eigenschaften erfüllen:\\
+$||A|| = 0 \Rightarrow A = 0$\\
+$||\alpha*A|| = |\alpha|*||A||$\\
+$||A+B|| \leq ||A|| + ||B||$\\
+Die gegebene Abbildung erfüllt diese, und ist damit eine Norm.
 
 \section*{Aufgabe 2}
-And some more text \ldots
+\subsection*{a)}
+Ist für $m=1$ immer gleich.
+Für $m \geq 2$ das größte element allein ist immer $\leq$ als das größte element $+ x\epsilon R_0^+$.
+
+\subsection*{b)}
+Ist für $m=1$ immer gleich.
+
+\subsection*{c)}
+Ist für $m,n=1$ immer gleich.
+
+\subsection*{d)}
+Ist für $m,n=1$ immer gleich.
+
+\section*{Aufgabe 3}
+\subsection*{a)}
+$ v * ((I - \frac{2}{v*v} \cdot v \cdot v^*)\cdot w) = -v * w$\\
+$v^*$ wird ist nicht eindeutig definiert, Aufgabe daher nicht lösbar
+
+\section*{Aufgabe 4}
+\subsection*{a)}
+$a_1 \cdot a_2 = 0$\\
+$a_1 \cdot a_3 = 0$\\
+$a_1 \cdot a_4 = 0$\\
+$a_2 \cdot a_3 = 0$\\
+$a_2 \cdot a_4 = 0$\\
+$a_3 \cdot a_4 = 0$\\
+damit ist $A$ paarweise orthogonal
+$c_1 \cdot c_2 = -22i$\\
+$c_1 \cdot c_3 = 22i$\\
+$c_2 \cdot c_3 = 48+46i$\\
+damit ist $C$ nicht paarweise orthogonal
+
+\subsection*{b)}
+$$A^* \cdot A = \begin{pmatrix}
+    0&1&1&0\\
+    1&0&0&1\\
+    1&0&1&0\\
+    0&1&0&1\\
+    1&0&0&1\\
+    0&1&1&0\\
+    0&1&0&1\\
+    1&0&1&0
+\end{pmatrix}$$
+$(A^* \cdot A)^{-1}$ ist nicht definiert
+$$(A^* \cdot A)^{-1} \cdot A^* = \frac{1}{4}\begin{pmatrix}
+    0&1&1&0&1&0&0&-1\\
+    1&0&0&-1&0&1&1&0\\
+    1&0&-1&0&0&-1&0&-1\\
+    0&1&0&1&-1&0&1&0
+\end{pmatrix}$$
 
 \end{document}
+
+{{0,1,1,0},{1,0,0,1},{1,0,-1,0},{0,-1,0,1},{1,0,0,-1},{0,1,-1,0},{0,1,0,1},{-1,0,-1,0}}
