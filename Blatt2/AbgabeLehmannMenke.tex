@@ -1,4 +1,4 @@
-% header
+﻿% header
 \documentclass[10pt,a4paper]{article}
 
 \usepackage[utf8]{inputenc}
@@ -31,7 +31,36 @@ $||B||_\infty = 11$\\
 $||B||_F = 2\sqrt{41}$
 
 \subsection*{b)}
+1. Zu zeigen: $||x||_W \geq 0, ||x||_W = 0$ gdw. $ x = 0$\\
 
+Der Beweis erfolgt in drei Schritten.\\
+Wir zeigen zunächst, dass $||x||_W \geq 0$:
+Laut Definition ist $||x||_W \coloneqq ||W*x||$. Da $||*||$ eine Norm ist, muss $||x|| \geq 0$ gelten. Somit ist gilt auch $||W*x|| \geq 0$. Damit ist die erste Bedingung erfüllt.\\
+
+Als nächsten Schritt zeigen wir die Hinrichtung der Äquivalenz.\\ Hierbei nutzen wir die absorbierende Eigenschaft von 0 und die Eigenschaft $||x|| = 0 \Rightarrow x = 0$ der Norm $||*||$:
+
+$x = 0 \Rightarrow ||x||_W = ||0||_W \coloneqq ||W*0|| = ||0|| = 0$\\
+
+Als letzten Schritt zeigen wir die Rückrichtung der Äquivalenz.\\
+$||x||_W = 0 \Rightarrow ||x||_W \coloneqq ||W*x||$\\
+Sei $y$ das Ergebnis von $W*x$, dann ist $y_i \coloneqq \sum_{j=1}^m w_ij * x_j$.\\
+Da $W$ invertierbar ist, sind auch alle Zeilen von $W$ linear unabhängig. Somit ist der Vektor $x=0$ eindeutig bestimmt. Damit sind alle Bedingungen für Schritt 1 erfüllt.\\
+
+2. Zu zeigen: $||\alpha x||_W = |\alpha|*||x||_W$\\
+
+$||\alpha*x||_W \coloneqq || W * ( \alpha * x )||$\\
+Sei $y$ das Ergebnis von $W*(\alpha * x)$, dann gilt aufgrund der Kommutativität von $*$ in \mathbb{C}:\\ 
+$y_i = \sum_{j=1}^m w_ij * (\alpha * x_j) = \alpha*\sum_{j=1}^w_ij*x_j$.\\ 
+Somit ist $w*(\alpha * x) = \alpha *(w*x)$\\
+
+Da $||*||$ eine Norm ist, gilt $||\alpha*A|| = |\alpha|*||A||$.\\
+Sei $A\coloneqq W*x$, so gilt aufgrund der Eigenschaft der Norm $||*||$ auch $||\alpha*(W*x)|| = |\alpha|*||W*x|| =  = |\alpha|*||x||_W$. Dies galt zu zeigen.\\
+
+3. Zu zeigen: $||x+y||_W \leq ||x||_W +||y||_W$\\
+
+Sei $y'$ das Ergebnis von $W*(x+y)$, dann ist $y'_i = \sum_{j=1}^m w_ij * ( x_j + y_j ) = \sum_{j=1}^m w_ij * x_j + \sum_{j=1}^m w_ij * y_j$ somit ist $W*(x+y) = Wx + Wy$. Aufgrund der Eigenschaft der Norm $||*||$ gilt dann auch $||Wx + Wy|| \leq ||Wx|| + ||Wy||$.
+
+Da alle 3 Eigenschaften für eine Norm erfüllt sind, bildet $||x||_W$ eine Norm.
 
 \subsection*{c)}
 Eine Norm muss drei Eigenschaften erfüllen:\\
