@@ -6,6 +6,9 @@
 \usepackage{amssymb}
 \usepackage{ngerman}
 \usepackage{listings}
+\usepackage{amsmath}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
 
 % the document
 \begin{document}
@@ -19,7 +22,118 @@
 \maketitle
 
 \section*{Aufgabe 1}
-Here comes your text \ldots
+A ist gleich der Vandermonde-Matrix\\
+$A = \begin{pmatrix}
+ 1 & -1 & 1 \\
+ 1 & 0  & 0 \\
+ 1 & 1  & 1 \\
+ 1 & 2  & 4 \\
+\end{pmatrix}\\
+v = \begin{pmatrix}
+    1 \\
+    0 \\
+    2 \\
+    4 \\
+\end{pmatrix}$
+
+So ergibt sich das folgende lineare Ausgleichsproblem:
+
+$\begin{pmatrix}
+    c \\
+    b \\
+    a \\
+\end{pmatrix} = \argmin_y ||v-Ay||_2$
+
+Nach Skript Satz 2.2 suchen wir nun nach einer Lösung der Gausschen Normalengleichung: \\
+
+$A* Ax = A* v$
+
+Setzen wir unsere Werte ein, erhalten wir folgende Gleichung:\\
+
+$\begin{pmatrix}
+    1 & 1 & 1 & 1\\
+    -1 & 0  & 1 & 2\\
+    1 & 0  & 1 & 4 \\
+\end{pmatrix}
+\begin{pmatrix}
+    1 & -1 & 1 \\
+    1 & 0  & 0 \\
+    1 & 1  & 1 \\
+    1 & 2  & 4 \\
+   \end{pmatrix} 
+   \begin{pmatrix}
+    c \\
+    b \\
+    a \\
+\end{pmatrix} = 
+\begin{pmatrix}
+    1 & 1 & 1 & 1\\
+    -1 & 0  & 1 & 2\\
+    1 & 0  & 1 & 4 \\
+\end{pmatrix} 
+\begin{pmatrix}
+    1 \\
+    0 \\
+    2 \\
+    4 \\
+\end{pmatrix}$  \\
+
+
+Zuerst lösen wir die Matrixprodukte auf
+
+$
+\leftrightarrow
+\begin{pmatrix}
+    4 & 2 & 6\\
+    2 & 6 & 8\\
+    6 & 8 & 18
+\end{pmatrix}
+\begin{pmatrix}
+    c \\
+    b \\
+    a \\
+\end{pmatrix} 
+=
+\begin{pmatrix}
+    7 \\
+    9 \\
+    19 \\
+\end{pmatrix} 
+$ 
+
+Wir lösen das LGS mit dem Gauss-Algorithmus:\\
+
+$
+\left(
+\begin{array}{ccc | c}
+    4 & 2 & 6 & 7\\
+    2 & 6 & 8 & 9\\
+    6 & 8 & 18 & 19
+\end{array}
+\right) \leftrightarrow
+\left(
+\begin{array}{ccc | c}
+    4 & 2 & 6 & 7\\
+    4 & 12 & 16 & 18\\
+    12 & 16 & 36 & 38
+\end{array}
+\right)  \leftrightarrow
+\left(
+\begin{array}{ccc | c}
+    4 & 2 & 6 & 7\\
+    0 & 10 & 10 & 11\\
+    0 & 10 & 18 & 17
+\end{array}
+\right)  
+\\\leftrightarrow
+\left(
+\begin{array}{ccc | c}
+    4 & 2 & 6 & 7\\
+    0 & 10 & 10 & 11\\
+    0 & 0 & 8 & 16
+\end{array}
+\right) \rightarrow a = 3/4, b = 7/20, c = 9/20\\
+$
 
 \section*{Aufgabe 2}
 And some more text \ldots
