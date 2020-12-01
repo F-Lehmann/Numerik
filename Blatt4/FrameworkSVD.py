@@ -61,7 +61,7 @@ if (__name__ == "__main__"):
     print(V)
     print("If the following numbers are nearly zero, SVD seems to be working.")
     print(np.linalg.norm(U*Sigma*V.H - A))
-    print(np.linalg.norm(U.H*U-np.eye(4))) #Überprüft eure Framewroks doch mal auf Fehler...
+    print(np.linalg.norm(U.H*U-np.eye(4))) #Testet eure Framewroks doch mal auf Fehler...
     print(np.linalg.norm(V.H*V-np.eye(3)))
     # Try solving a least squares system    
     b = np.matrix([1.0,2.0,3.0,4.0]).T
