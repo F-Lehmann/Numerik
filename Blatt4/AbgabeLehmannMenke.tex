@@ -7,6 +7,7 @@
 \usepackage{ngerman}
 \usepackage{listings}
 \usepackage{amsmath}
+\usepackage{dsfont}
 
 % the document
 \begin{document}
@@ -20,7 +21,119 @@
 \maketitle
 
 \section*{Aufgabe 1}
-Here comes your text \ldots
+\subsection{Teilaufgabe a}
+\begin{enumerate}
+    \item Berechne  $B = A^TA$\\
+    
+    $B = \begin{pmatrix}
+        1 & 2 & 0\\
+        0 & 1 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        1 & 0\\
+        2 & 1\\
+        0 & 1
+    \end{pmatrix} =
+    \begin{pmatrix}
+        5 & 2\\
+        2 & 2
+    \end{pmatrix}\\
+    $
+    \item Eigenwerte berechnen\\
+    
+    $det( B - \lambda E) \overset{!}{=} 0$\\
+    Wir erhalten das charakteristische Polynom: \\
+    $\lambda^2 - 7\lambda +6$\\
+    Die Eigenwerte sind die Nullstellen des Polynoms:\\
+    $\lambda_1 = 6$\\
+    $\lambda_2 = 1$\\
+
+    \item Berechne V\\
+    
+    Eigenvektor von $\lambda_2$:\\
+    $(B-\lambda_2) * v_2 \overset{!}{=} 0$\\
+    Wir lösen das LGS und erhalten unseren Eigenvektor\\
+    $v_2 = t_2 * \begin{pmatrix}
+        -1/2\\
+        1
+    \end{pmatrix}, t_2 \in \mathds{R}/\{0\}\\
+    $
+    Wir normieren den Vektor\\
+    $v_2 = \begin{pmatrix}
+        -1/\sqrt{5}\\
+        2/\sqrt{5}
+    \end{pmatrix}$
+
+    Eigenvektor von $\lambda_1$:\\
+    $(B-\lambda_1) * v_1 \overset{!}{=} 0$\\
+    Wir lösen das LGS und erhalten unseren Eigenvektor\\
+    $v_1 = t_1 * \begin{pmatrix}
+        2\\
+        1
+    \end{pmatrix}, t_1 \in \mathds{R}/\{0\}\\
+    $
+    Wir normieren den Vektor\\
+    $v_1 = \begin{pmatrix}
+        2/\sqrt{5}\\
+        1/\sqrt{5}
+    \end{pmatrix}$
+
+    Somit ist $V = [v_1,v_2]$ und es gilt $V*V^T = E$
+
+    \item Bilde die Diagonalmatrix $\Sigma$\\
+    
+    $\Sigma = \begin{pmatrix}
+        \sqrt{6} & 0\\
+        0 &  1
+    \end{pmatrix}$
+
+    \item Berechne U\\
+    $u_2 = \dfrac{1}{\sqrt{\lambda_2}}Av_2 = \begin{pmatrix}
+        1 & 0\\
+        2 & 1\\
+        0 & 1
+    \end{pmatrix} * \begin{pmatrix}
+        -1/\sqrt{5}\\
+        2/\sqrt{5}
+    \end{pmatrix} =
+    \begin{pmatrix}
+        \dfrac{-\sqrt{5}}{5}\\
+        0\\
+        \dfrac{2\sqrt{5}}{5}
+    \end{pmatrix}$\\
+    $u_1 = \dfrac{1}{\sqrt{\lambda_1}}Av_1 = \dfrac{1}{\sqrt{6}} \begin{pmatrix}
+        1 & 0\\
+        2 & 1\\
+        0 & 1
+    \end{pmatrix} * \begin{pmatrix}
+        2/\sqrt{5}\\
+        1/\sqrt{5}
+    \end{pmatrix} =
+    \begin{pmatrix}
+        \dfrac{\sqrt{30}}{15}\\
+        \dfrac{\sqrt{30}}{6}\\
+        \dfrac{\sqrt{30}}{30}
+    \end{pmatrix}$\\
+
+    Dadurch ergibt sich folgende Zerlegung:
+
+    $A =     \begin{pmatrix}
+        \dfrac{\sqrt{30}}{15} & \dfrac{-\sqrt{5}}{5} & *\\
+        \dfrac{\sqrt{30}}{6}  & 0 & *\\ 
+        \dfrac{\sqrt{30}}{30} & \dfrac{2\sqrt{5}}{5} & *
+    \end{pmatrix} * \begin{pmatrix}
+        \sqrt{6} & 0\\
+       0  & 1 \\ 
+        0 & 0
+    \end{pmatrix} * \begin{pmatrix}
+        2/\sqrt{5} & -1/\sqrt{5}\\
+        1/\sqrt{5}  & 2/\sqrt{5}
+    \end{pmatrix} $
+    
+
+\end{enumerate}
+\subsection{Teilaufgabe b}
+    Die *-Einträge in U fallen in der Multiplikation mit $\Sigma$ aufgrund der 0-Einträge weg.
 
 \section*{Aufgabe 2}
 \lstinputlisting[language=Python, breaklines=true, frame=single]{FrameworkSVD.py}
