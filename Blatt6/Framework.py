@@ -1,25 +1,30 @@
 import numpy as np
 from numpy import linalg as la
+from typing import Union
 
-def Householder(A):
-    """Computes a QR-decomposition of the given matrix using the Householder 
-       algorithm.
-      \return A pair (NormalList,R) where NormalList is a list of Householder 
-              normal vectors and R is an upper triangular matrix shaped like A.
-      \sa ComputeQ """
-	
+def Householder(x: np.ndarray) -> Union[np.ndarray, int]:
+    m, n = A.shape
+    Q = np.eye(m)
+    R = A.copy()
 
+    for j in range(n):
+        x = R[j:, j]
+        normx = np.linalg.norm(x)
+        rho = -np.sign(x[0])
+        u1 = x[0] - rho * normx
+        u = x / u1
+        u[0] = 1
+        beta = -rho * u1 / normx
 
-def ComputeQ(NormalList):
-    """Given a normal list such as the one returned by householder() this 
-       function computes the corresponding orthogonal matrix."""
-	
+        R[j:, :] = R[j:, :] - beta * np.outer(u, u).dot(R[j:, :])
+        Q[:, j:] = Q[:, j:] - beta * Q[:, j:].dot(np.outer(u, u))
+        
+    return Q, R
 
 
 if(__name__=="__main__"):
     A=np.random.rand(4,3)
-    NormalList,R=Householder(A)
-    Q=ComputeQ(NormalList)
+    Q,R=Householder(A)
     print("The following matrix should be upper triangular:")
     print(R)
     print("If the solution consitutes a decomposition, the following is near zero:")
