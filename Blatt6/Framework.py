@@ -2,7 +2,7 @@ import numpy as np
 from numpy import linalg as la
 from typing import Union
 
-def Householder(x: np.ndarray) -> Union[np.ndarray, int]:
+def HouseholderQR(x: np.ndarray) -> Union[np.ndarray, int]:
     m, n = A.shape
     Q = np.eye(m)
     R = A.copy()
@@ -24,7 +24,7 @@ def Householder(x: np.ndarray) -> Union[np.ndarray, int]:
 
 if(__name__=="__main__"):
     A=np.random.rand(4,3)
-    Q,R=Householder(A)
+    Q,R=HouseholderQR(A)
     print("The following matrix should be upper triangular:")
     print(R)
     print("If the solution consitutes a decomposition, the following is near zero:")
