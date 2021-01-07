@@ -21,6 +21,29 @@
 \maketitle
 
 \section*{Aufgabe 1}
+\subsection*{a)}
+\subsection*{exp(x)}
+$K_{abs} = |exp(x)|$\\
+$K_{rel} = |\frac{exp(x) * x}{exp(x)}| = |x| $\\
+Schlecht konditioniert für $x \gg 1$.\\
+
+\subsection*{ln(x)}
+$K_{abs} = |\frac{1}{x}|$\\
+$K_{rel} = |\frac{\frac{1}{x} * x}{ln(x)}| = |\frac{1}{ln(x)}| $\\
+Schlecht konditioniert für $x$ nahe 0.\\
+
+\subsection*{b)}
+\subsection*{Absolute Konditionszahl}
+Aufgrund der Kettenregel gilt:\\
+$K_{abs}(f(g(x))) = |f'(g(x)) * g'(x)| = |f'(g(x))| * |g'(x)| = K_{abs}(f) * K_{abs}(g)$\\
+
+\subsection*{Relative Konditionszahl}
+Wir berechnen beide Konditionszahlen.\\
+$K_{rel}(f) = |\frac{f'(g(x)) * g(x)}{f(g(x))}|$\\
+$K_{rel}(g) = |\frac{g'(x)*x}{g(x)}|$\\
+$K_{rel}(g) * K_{rel}(f) = |\frac{f'(g(x))*g'(x)*x}{f(g(x))}|$\\
+Hier lässt sich die Kettenregel rückwärts anwenden.
+$= K_{rel}(f(g))$
 
 
 \section*{Aufgabe 2}
