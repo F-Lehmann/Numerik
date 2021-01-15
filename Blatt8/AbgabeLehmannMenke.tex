@@ -21,7 +21,145 @@
 \maketitle
 
 \section*{Aufgabe 1}
-Here comes your text \ldots
+\subsection*{a)}
+$ U = \begin{pmatrix}
+    2.3 & 1.8 & 1.0\\
+    1.4 & 1.1 & -0.7\\
+    0.8 & 4.3 & 2.1\\
+\end{pmatrix}
+L = \begin{pmatrix}
+    1 & 0 & 0\\
+    0 & 1 & 0\\
+    0 & 0 & 1\\
+\end{pmatrix}\\$
+Zeilen sind mit römischen Ziffern aufsteigend zu interpretieren:\\
+$II = II - (10/23 *  14/10)I\\
+U = \begin{pmatrix}
+    23/10 & 9/5 & 1\\
+    0 & 1/230 & -301/230\\
+    4/5 & 43/10 & 21/10\\
+\end{pmatrix}
+L = \begin{pmatrix}
+    1 & 0 & 0\\
+    14/23 & 1 & 0\\
+    0 & 0 & 1\\
+\end{pmatrix}\\
+III = III - (10/23 * 8/10)I\\
+U = \begin{pmatrix}
+    23/10 & 9/5 & 1\\
+    0 & 1/230 & -301/230\\
+    0 & 169/46 & 403/230\\
+\end{pmatrix}
+L = \begin{pmatrix}
+    1 & 0 & 0\\
+    14/23 & 1 & 0\\
+    8/23 & 0 & 1\\
+\end{pmatrix}\\
+III = III - (230 * 169/46)II\\
+U = \begin{pmatrix}
+    23/10 & 9/5 & 1\\
+    0 & 1/230 & -301/230\\
+    0 & 0 & 5538/5\\
+\end{pmatrix}
+L = \begin{pmatrix}
+    1 & 0 & 0\\
+    14/23 & 1 & 0\\
+    8/23 & 845 & 1\\
+\end{pmatrix}\\
+$
+L ist nun untere Dreiecksmatrix und U ist obere Dreiecksmatrix. Der Ergebnis entspricht dem erwarteten Verhalten.\\
+Wir errechnen nun die Lösung des LGS:\\
+$ L * ( U * x ) = b\\$
+Vorwärtseinsetzen (y = Ux):\\
+$\begin{pmatrix}
+    1 & 0 & 0\\
+    14/23 & 1 & 0\\
+    8/23 & 845 & 1\\
+\end{pmatrix}*\begin{pmatrix}
+    y1\\
+    y2\\
+    y3\\
+\end{pmatrix}=\begin{pmatrix}
+    1.2\\
+    -2.1\\
+    0.6\\
+\end{pmatrix}\\\Rightarrow
+y =\begin{pmatrix}
+    6/5\\
+    -651/230\\
+    23919/10\\
+\end{pmatrix} 
+$
+Jetzt lösen wir das verbleibende LGS:\\
+$U * x = y$\\
+Welches sich durch Rückwärtseinsetzen lösen lässt:\\
+$ x = \begin{pmatrix}
+    323/923\\
+    -3619/3692\\
+    7973/3691\\
+\end{pmatrix}$ \\
+Da ich die Aufgabe nicht richtig gelesen habe und genau gerechnet habe, ist der relative und absolute Fehler = 0. Ich vermute an dieser Stelle, dass der Fehler recht hoch ist, da die LR Zerlegung numerisch instabil ist. Der relative Fehler wäre an dieser Stelle durch $(|x_{gegeben}-x_{berechnet}|/x_{gegeben}$ berechnet worden. 
+\subsection*{b)}
+$ U = \begin{pmatrix}
+    2.3 & 1.8 & 1.0\\
+    1.4 & 1.1 & -0.7\\
+    0.8 & 4.3 & 2.1\\
+\end{pmatrix}
+L = \begin{pmatrix}
+    1 & 0 & 0\\
+    0 & 1 & 0\\
+    0 & 0 & 1\\
+\end{pmatrix}\\
+P = \begin{pmatrix}
+    1 & 0 & 0\\
+    0 & 1 & 0\\
+    0 & 0 & 1\\
+\end{pmatrix}\\$
+Maximales $ |u_{i1}| = 2.3 \Rightarrow $ Keine Zeile muss getauscht werden.\\
+Maximales $|u_{i2}| = 4.3 \Rightarrow $ Tausche Zeilen II und III in U und P.\\
+$ U = \begin{pmatrix}
+    2.3 & 1.8 & 1.0\\
+    0.8 & 4.3 & 2.1\\
+    1.4 & 1.1 & -0.7\\
+\end{pmatrix}\\
+P = \begin{pmatrix}
+    1 & 0 & 0\\
+    0 & 0 & 1\\
+    0 & 1 & 0\\
+\end{pmatrix}\\$
+Jetzt lösen wir:
+$P*A = L*U$\\
+Analog zu Teilaufgabe b) können wir nun L und U berechnen.\\
+0en erste Spalte:\\
+$U = \begin{pmatrix}
+    2.3 & 1.8 & 1\\
+    0 & 3.67 & 1.75\\
+    0 & 0 & -1.31\\
+\end{pmatrix}
+L = \begin{pmatrix}
+    1 & 0 & 0\\
+    0.34 & 1 & 0\\
+    0.61 & 0 & 1\\
+\end{pmatrix}\\
+$
+U ist bereits eine obere Dreiecksmatrix\\
+Wir lösen $P*L*U*x = b$\\
+Sei $y = Ux$\\
+Durch Vorwärtseinsetzen erhalten wir y:\\
+$y = \begin{pmatrix}
+    1.2\\
+    -2.51\\
+    -0.13\\
+\end{pmatrix}\\
+$Durch Rückwärtseinsetzen erhalten wir nun x:\\
+$x = \begin{pmatrix}
+    1.05\\
+    -0.73\\
+    0.1
+\end{pmatrix}$\\
+Jetzt muss $P*L*U*x~b$ sein\\
+Da ich mich irgendwo massiv verrechnet habe stimmt das leider nicht ganz....\\
+Der relative Fehler sollte bei Aufgabeteil b deutlich kleiner sein. Grund dafür ist, dass wir nach weniger Schritten (d.h. auch weniger Rundungen) bereits zum Ergebnis kommen, da U schneller in eine obere Dreiecksmatrix umgewandelt werden kann.\\
 
 \section*{Aufgabe 2}
 \lstinputlisting[language=Python, breaklines=true, frame=single]{FrameworkLU.py}
