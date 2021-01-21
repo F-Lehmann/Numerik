@@ -1,0 +1,109 @@
+% header
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{ngerman}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{dsfont}
+
+% the document
+\begin{document}
+
+% create the title
+% Please replace the data in brackets [] with actual data.
+\title{Abgabe - Übungsblatt [$9$]\\
+\small{Angewandte Mathematik: Numerik}}
+\author{ [Felix Lehmann] \and [Markus Menke]}
+\date{\today}
+\maketitle
+
+\section*{Aufgabe 1}
+
+Cholesky
+\begin{enumerate}
+    \item Berechne Cholesky Zerlegung von A
+    \item Löse unteres Dreieckssystem $R^*w = A^*b$ nach $w$
+    \item Löse oberes Dreieckssystem $Rx = w$ nach $x$
+\end{enumerate}
+Instabil, nur für kleine Probleme\\
+nur für hermitesche positiv-definite Matrizen
+
+QR
+\begin{enumerate}
+    \item Berechne QR Zerlegung von A
+    \item Berechne $Q^* b$
+    \item Löse oberes Dreieckssystem $R x = Q^* b$ nach $x$
+\end{enumerate}
+Stabiler, Standardverfahren
+
+SVD
+\begin{enumerate}
+    \item Berechne SVD Zerlegung von A
+    \item Berechne $U^* b$
+    \item Löse Diagonalsystem $\Sigma w = U^* b$ nach $w$
+    \item Berechne $x = V w$
+\end{enumerate}
+Ähnliche effizient wie QR wenn $m>>n$, sonst teurer aber auch noch stabiler
+
+\section*{Aufgabe 2}
+\subsection*{a)}
+$\left(\begin{matrix}
+            1 & 2 & 1 \\
+            2 & 8 & 2 \\
+            1 & 2 & 2
+        \end{matrix}\right)
+    =\left(\begin{matrix}
+            l_{1,1} & 0       & 0       \\
+            l_{2,1} & l_{2,2} & 0       \\
+            l_{3,1} & l_{3,2} & l_{3,3}
+        \end{matrix}\right)
+    \cdot\left(\begin{matrix}
+            l_{1,1} & l_{2,1} & l_{3,1} \\
+            0       & l_{2,2} & l_{3,2} \\
+            0       & 0       & l_{3,3}
+        \end{matrix}\right)
+    =\left(\begin{matrix}
+            l_{1,1}^2      & l_{1,1}l_{2,1}                & l_{1,1}l_{3,1}                \\
+            l_{1,1}l_{2,1} & l_{2,1}^2+l_{2,2}^2           & l_{2,1}l_{3,1}+l_{2,2}l_{3,2} \\
+            l_{1,1}l_{3,1} & l_{2,1}l_{3,1}+l_{2,2}l_{3,2} & l_{3,1}^2+l_{3,2}^2+l_{3,3}^2
+        \end{matrix}\right)$\\
+\begin{align*}
+    l_{1,1}^2 = 1                     & \rightarrow l_{1,1} = 1 \\
+    l_{1,1}l_{2,1} = 2                & \rightarrow l_{2,1} = 2 \\
+    l_{1,1}l_{3,1} = 1                & \rightarrow l_{3,1} = 1 \\
+    l_{2,1}^2+l_{2,2}^2 = 8           & \rightarrow l_{2,2} = 2 \\
+    l_{2,1}l_{3,1}+l_{2,2}l_{3,2} = 2 & \rightarrow l_{3,2} = 0 \\
+    l_{3,1}^2+l_{3,2}^2+l_{3,3}^2 = 2 & \rightarrow l_{3,3} = 1
+\end{align*}
+$L=\left(\begin{matrix}
+            1 & 0 & 0 \\
+            2 & 2 & 0 \\
+            1 & 0 & 1
+        \end{matrix}\right)$
+$R=\left(\begin{matrix}
+            1 & 2 & 1 \\
+            0 & 2 & 0 \\
+            0 & 0 & 1
+        \end{matrix}\right)$
+\subsection*{b)}
+\begin{align*}
+    R^*w &= b\\
+    \left(\begin{matrix}
+        1 & 0 & 0 \\
+        2 & 2 & 0 \\
+        1 & 0 & 1
+    \end{matrix}\right) w &=  \left(\begin{matrix}
+         \\
+        2 \\
+        1
+    \end{matrix}\right)
+    Rx &= w
+\end{align*}
+
+\section*{Aufgabe 3}
+\lstinputlisting[language=Python, breaklines=true, frame=single]{FrameworkEigenvalue.py}
+
+\end{document}
