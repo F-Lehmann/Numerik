@@ -9,20 +9,34 @@
 \usepackage{amsmath}
 \usepackage{dsfont}
 
+
+\newcommand\iv{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily IV}}}{=}}}
+
 % the document
 \begin{document}
 
 % create the title
 % Please replace the data in brackets [] with actual data.
-\title{Abgabe - Übungsblatt [$X$]\\
+\title{Abgabe - Übungsblatt [$10$]\\
 \small{Angewandte Mathematik: Numerik}}
 \author{ [Felix Lehmann] \and [Markus Menke]}
 \date{\today}
 \maketitle
 
 \section*{Aufgabe 1}
-Here comes your text \ldots
+Zuerst zeigen wir per Induktion über i, dass $A^{i} = V \cdot \Lambda^{i} \cdot V^{-1}$\\
+IV: Die Aussage gelte für ein beliebiges aber festes n.\\
+IA: $n = 1$:\\
+Trivial, die Zerlegung $A = V \cdot \Lambda \cdot V^{-1}$ existiert nach Aufgabenstellung\\
+IS: $n \mapsto n+1$:\\
+$A^{n+1} = A^{n} \cdot A \iv V \cdot \Lambda^{n} \cdot V^{-1} \cdot A = V \cdot \Lambda^{n} \cdot V^{-1} \cdot V \cdot \Lambda \cdot V^{-1}\\
+= V \cdot \Lambda^{n} \cdot E \cdot \Lambda \cdot V^{-1} = V \cdot \Lambda^{n+1} \cdot V^{-1}$\\
+Dies galt zu zeigen.\\
 
+$g(A):=  \sum_{n=0}^{\infty} c_{i} \cdot A^{i} = \sum_{n=0}^{\infty} c_{i} \cdot V \cdot \Lambda^{i} \cdot V^{-1}\\
+= V \cdot (\sum_{n=0}^{\infty} c_{i}\cdot\Lambda^{i}) \cdot V^{-1} = V \cdot diag(f(\lambda_{1}),...,f(\lambda_{1})) \cdot V^{-1} $\\
+Dies galt zu zeigen.\\
+ 
 \section*{Aufgabe 2}
 And some more text \ldots
 
