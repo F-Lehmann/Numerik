@@ -1,0 +1,80 @@
+% header
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{ngerman}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{dsfont}
+
+% the document
+\begin{document}
+
+% create the title
+% Please replace the data in brackets [] with actual data.
+\title{Abgabe - Übungsblatt [11]\\
+\small{Angewandte Mathematik: Numerik}}
+\author{ [Felix Lehmann] \and [Markus Menke]}
+\date{\today}
+\maketitle
+
+\section*{Aufgabe 1}
+Here comes your text \ldots
+
+\section*{Aufgabe 2}
+And some more text \ldots
+
+\section*{Aufgabe 3}
+And even more text \ldots
+
+\section*{Aufgabe 4}
+
+\subsection*{a)}
+\begin{align*}
+f &= \begin{pmatrix}
+    (R + r \cos \varphi) \cos \theta \\
+    (R + r \cos \varphi) \sin \theta \\
+    r \sin \varphi
+\end{pmatrix}\\
+\frac{\delta}{\delta\theta}f &= \begin{pmatrix}
+    (R + r \cos \varphi)  ( -sin \theta) \\
+    (R + r \cos \varphi)  (\cos \theta) \\
+    0
+\end{pmatrix}\\
+\frac{\delta}{\delta\varphi}f &= \begin{pmatrix}
+    - r \cos \theta \sin \varphi\\
+    - r \sin \theta \sin \varphi\\
+    r \cos \varphi
+\end{pmatrix}\\
+f' &= \begin{pmatrix}
+    (R + r \cos \varphi) ( -sin \theta) & - r \cos \theta \sin \varphi \\
+    (R + r \cos \varphi) (\cos \theta) & - r \sin \theta \sin \varphi\\
+    0 & r \cos \varphi
+\end{pmatrix}
+\end{align*}
+
+\subsection*{b)}
+\begin{align*}
+(f\circ\gamma)' &= f'(\gamma(t)) \circ \gamma'(t)\\
+&= \begin{pmatrix}
+    (R + r \cos (bt^2)) ( -\sin (at^2)) & - r \cos (at^2) \sin (bt^2)\\
+    (R + r \cos (bt^2)) (\cos (at^2)) & - r \sin (at^2) \sin (bt^2)\\
+    0 & r \cos (bt^2)
+\end{pmatrix} \circ \begin{pmatrix} 
+    2at\\
+    2bt\\
+\end{pmatrix}\\
+&= \begin{pmatrix}
+    2at(R + r \cos (bt^2)) ( -\sin (at^2)) + (- 2bt r \cos (at^2) \sin (bt^2))\\
+    2at(R + r \cos (bt^2)) (\cos (at^2)) + (-2bt r \sin (at^2) \sin (bt^2))\\
+    2bt r \cos (bt^2)
+\end{pmatrix}\\
+&= \begin{pmatrix}
+    2t (a(R + r \cos (bt^2)) ( -\sin (at^2)) + (- b r \cos (at^2) \sin (bt^2)))\\
+    2t (a(R + r \cos (bt^2)) (\cos (at^2)) + (-b r \sin (at^2) \sin (bt^2)))\\
+    2btr \cos (bt^2)
+\end{pmatrix}\\
+\end{align*}
+\end{document}
