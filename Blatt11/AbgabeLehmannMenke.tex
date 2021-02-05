@@ -24,7 +24,61 @@
 Here comes your text \ldots
 
 \section*{Aufgabe 2}
-And some more text \ldots
+Wir interpretieren die Übergänge als Matrizenmultiplikation:\\
+$\begin{pmatrix}
+    5 && -1\\
+    6 && 12\\
+\end{pmatrix} \dot{}
+\begin{pmatrix}
+    a_{n}\\
+    b_{n}\\
+\end{pmatrix} = 
+\begin{pmatrix}
+    a_{n+1}\\
+    b_{n+1}\\
+\end{pmatrix}$\\
+Sei A = $\begin{pmatrix}
+    5 && -1\\
+    6 && 12\\
+\end{pmatrix}$\\
+Wir berechnen die Eigenwerte:\\
+$det\begin{pmatrix}
+    5-\lambda && -1\\
+    6 && 12-\lambda\\
+\end{pmatrix}=\lambda^2 -17\lambda + 66 \rightarrow \lambda_1 = 11, \lambda_2 = 6$\\
+Die Eigenvektoren lauten:\\
+$\begin{pmatrix}
+    -1\\
+    6\\
+\end{pmatrix}\\ 
+\begin{pmatrix}
+    -1\\
+    1\\
+\end{pmatrix}$\\
+Dadurch ergibt sich eine Eigenwertzerlegung:\\
+$A = V \dot{} \Lambda \dot V^{-1} = \begin{pmatrix}
+    -1 && -1\\
+    6 && 1\\
+\end{pmatrix} \dot{} \begin{pmatrix}
+    11 && 0\\
+    0 && 6\\
+\end{pmatrix} \dot{}\begin{pmatrix}
+    1/5 && 1/5\\
+    -6/5 && 1/5\\
+\end{pmatrix} $\\
+Jetzt verwenden wir das Ergebnis von Blatt 10 Aufgabe 1:\\
+$A^{n} = V * diag(11^n, 6^n) * V^{-1} = \begin{pmatrix}
+    -11^n/5-6^{n+1}/5 && -11^n/5-6^n/5\\
+    6/5*11^n-6^{n+1}/5 && 6/5*11^n+6^n/5\\
+\end{pmatrix}
+\rightarrow A^{n}*\begin{pmatrix}
+    2\\
+    4\\
+\end{pmatrix}=\begin{pmatrix}
+    2*(-11^n/5-6^{n+1}/5)+4(-11^n/5-6^n/5)\\
+    2*(6*11^n/5-6^{n+1}/5)+4(6*11^n/5+6^n/5)\\
+\end{pmatrix}$\\
+Die explizite Darstellung der Folgen sind die Zeilen dieses Vektors (Zeile 1: Folge a, Zeile 2: Folge b)\\
 
 \section*{Aufgabe 3}
 And even more text \ldots
